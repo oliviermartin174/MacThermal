@@ -1,0 +1,10 @@
+AVANT F0 minimum=500.00 maximum=1200.00 mode=0 actuel=501.34
+AVANT F1 minimum=500.00 maximum=2500.00 mode=0 actuel=611.20
+AVANT F2 minimum=500.00 maximum=2500.00 mode=0 actuel=512.73
+AVANT F3 minimum=500.00 maximum=2500.00 mode=0 actuel=657.85
+TEST F0 cible=640.00 retour=-6 minimum_relu=500.00 mode=0
+RETOUR F0 minimum=500.00 mode=0 actuel=501.00
+RETOUR F1 minimum=500.00 mode=0 actuel=611.31
+RETOUR F2 minimum=500.00 mode=0 actuel=512.93
+RETOUR F3 minimum=500.00 mode=0 actuel=658.45
+RESULTAT renfort=NON_COMPATIBLE ventilation_standard=CONFIRMEE

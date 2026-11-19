@@ -1,0 +1,17 @@
+AVANT F0 minimum=500.00 maximum=1200.00 mode=0 cible=500.00 actuel=498.84
+AVANT F1 minimum=500.00 maximum=2500.00 mode=0 cible=600.00 actuel=611.45
+AVANT F2 minimum=500.00 maximum=2500.00 mode=0 cible=500.00 actuel=512.14
+AVANT F3 minimum=500.00 maximum=2500.00 mode=0 cible=660.00 actuel=657.80
+TEST F0 mode_write=0 cible_write=0 mode=1 cible=640.00
+TEST F1 mode_write=0 cible_write=0 mode=1 cible=900.00
+TEST F2 mode_write=0 cible_write=0 mode=1 cible=900.00
+TEST F3 mode_write=0 cible_write=0 mode=1 cible=900.00
+RENFORT F0 actuel=639.39 cible=640.00
+RENFORT F1 actuel=905.95 cible=900.00
+RENFORT F2 actuel=907.69 cible=900.00
+RENFORT F3 actuel=907.76 cible=900.00
+RETOUR F0 minimum=500.00 mode=0 actuel=635.06
+RETOUR F1 minimum=500.00 mode=0 actuel=902.80
+RETOUR F2 minimum=500.00 mode=0 actuel=906.50
+RETOUR F3 minimum=500.00 mode=0 actuel=906.34
+RESULTAT renfort=VALIDE ventilation_standard=CONFIRMEE

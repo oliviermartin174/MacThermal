@@ -1,0 +1,26 @@
+PHASE demande=0 statut=ready attendu=ready
+F0 mode=0 actuel=499.50
+F1 mode=0 actuel=593.48
+F2 mode=0 actuel=485.36
+F3 mode=0 actuel=649.14
+PHASE demande=1 statut=boost attendu=boost
+F0 mode=1 actuel=639.66
+F1 mode=1 actuel=905.25
+F2 mode=1 actuel=906.26
+F3 mode=1 actuel=906.72
+PHASE demande=0 statut=ready attendu=ready
+F0 mode=0 actuel=534.76
+F1 mode=0 actuel=555.70
+F2 mode=0 actuel=548.06
+F3 mode=0 actuel=615.73
+PHASE demande=1 statut=boost attendu=boost
+F0 mode=1 actuel=590.32
+F1 mode=1 actuel=782.04
+F2 mode=1 actuel=655.58
+F3 mode=1 actuel=799.95
+WATCHDOG statut=stopped
+WATCHDOG F0 mode=0
+WATCHDOG F1 mode=0
+WATCHDOG F2 mode=0
+WATCHDOG F3 mode=0
+RESULTAT integration=VALIDEE automatique_final=CONFIRME

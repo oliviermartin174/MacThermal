@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	"archiveVersion" = "1";
+	"classes" = {
+	};
+	"objectVersion" = "56";
+	"objects" = {
+		"4B106B5BED599112810B56F6" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Sources/main.swift";
+			"sourceTree" = "<group>";
+		};
+		"3D91553C160CD213B7DC6263" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Sources/ThermalModel.swift";
+			"sourceTree" = "<group>";
+		};
+		"C26A92AE2B9732E5D215E8D5" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.c.c";
+			"path" = "Sources/SMC.c";
+			"sourceTree" = "<group>";
+		};
+		"C4B5877193EA237A54E4090F" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.c.h";
+			"path" = "Sources/SMC.h";
+			"sourceTree" = "<group>";
+		};
+		"2E1B067637F255184E80DD82" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.c.c";
+			"path" = "Sources/FanAssist.c";
+			"sourceTree" = "<group>";
+		};
+		"25664DAB92B88B7CC174F528" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.c.c";
+			"path" = "Tests/FanAssistTests.c";
+			"sourceTree" = "<group>";
+		};
+		"3E7161A9D724494D1F01C9F2" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "sourcecode.swift";
+			"path" = "Tests/ThermalModelTests.swift";
+			"sourceTree" = "<group>";
+		};
+		"74748452071B36DAFD9A814D" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.plist.xml";
+			"path" = "Config/Info.plist";
+			"sourceTree" = "<group>";
+		};
+		"B8ED3E13CBD1A5DB390C5CFA" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "net.daringfireball.markdown";
+			"path" = "README.md";
+			"sourceTree" = "<group>";
+		};
+		"B25CA65B1365E8DBD685DD19" = {
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "net.daringfireball.markdown";
+			"path" = "docs/PUBLICATION.md";
+			"sourceTree" = "<group>";
+		};
+		"53FDD4FE57A83C7B6B7E1CB4" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.application";
+			"path" = "MacThermal.app";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+			"includeInIndex" = "0";
+		};
+		"B34F03E279DF136CB92B1F6F" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "compiled.mach-o.executable";
+			"path" = "FanAssist";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+			"includeInIndex" = "0";
+		};
+		"94BBC29CC552E511EAD32DC6" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "compiled.mach-o.executable";
+			"path" = "FanAssistTests";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+			"includeInIndex" = "0";
+		};
+		"EEAA0CD702650B9529017DFD" = {
+			"isa" = "PBXFileReference";
+			"explicitFileType" = "wrapper.cfbundle";
+			"path" = "MacThermalTests.xctest";
+			"sourceTree" = "BUILT_PRODUCTS_DIR";
+			"includeInIndex" = "0";
+		};
+		"FBDC4F23F93125BBEEAE800C" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"53FDD4FE57A83C7B6B7E1CB4",
+				"B34F03E279DF136CB92B1F6F",
+				"94BBC29CC552E511EAD32DC6",
+				"EEAA0CD702650B9529017DFD",
+			);
+			"name" = "Products";
+			"sourceTree" = "<group>";
+		};
+		"2EB56BE3C2D93CDAB0C52E67" = {
+			"isa" = "PBXGroup";
+			"name" = "Sources";
+			"children" = (
+				"4B106B5BED599112810B56F6",
+				"3D91553C160CD213B7DC6263",
+				"C26A92AE2B9732E5D215E8D5",
+				"C4B5877193EA237A54E4090F",
+				"2E1B067637F255184E80DD82",
+			);
+			"sourceTree" = "<group>";
+		};
+		"39FDEC1194D94212B871A28B" = {
+			"isa" = "PBXGroup";
+			"name" = "Tests";
+			"children" = (
+				"25664DAB92B88B7CC174F528",
+				"3E7161A9D724494D1F01C9F2",
+			);
+			"sourceTree" = "<group>";
+		};
+		"8851142DA56FD885CE668A16" = {
+			"isa" = "PBXGroup";
+			"name" = "Config";
+			"children" = (
+				"74748452071B36DAFD9A814D",
+			);
+			"sourceTree" = "<group>";
+		};
+		"E50290A24C49A459B43487C5" = {
+			"isa" = "PBXGroup";
+			"children" = (
+				"2EB56BE3C2D93CDAB0C52E67",
+				"39FDEC1194D94212B871A28B",
+				"8851142DA56FD885CE668A16",
+				"B8ED3E13CBD1A5DB390C5CFA",
+				"B25CA65B1365E8DBD685DD19",
+				"FBDC4F23F93125BBEEAE800C",
+			);
+			"sourceTree" = "<group>";
+		};
+		"6F5E40DD51FBE82258C41A89" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "B34F03E279DF136CB92B1F6F";
+			"settings" = {
+				"ATTRIBUTES" = (
+					"CodeSignOnCopy",
+				);
+			};
+		};
+		"F775947A5500430D9160E2A4" = {
+			"isa" = "PBXCopyFilesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"dstPath" = "";
+			"dstSubfolderSpec" = "6";
+			"files" = (
+				"6F5E40DD51FBE82258C41A89",
+			);
+			"name" = "Embed FanAssist";
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"1CF845BF6EEC30F78FE1D95D" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "94BBC29CC552E511EAD32DC6";
+			"settings" = {
+				"ATTRIBUTES" = (
+					"CodeSignOnCopy",
+				);
+			};
+		};
+		"0FD1B9DE92B34E0EE4216E06" = {
+			"isa" = "PBXCopyFilesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"dstPath" = "";
+			"dstSubfolderSpec" = "7";
+			"files" = (
+				"1CF845BF6EEC30F78FE1D95D",
+			);
+			"name" = "Embed FanAssistTests";
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"2A2D4EF745B7E8EA2E2370F6" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"COPY_PHASE_STRIP" = "NO";
+				"OTHER_LDFLAGS" = (
+					"$(inherited)",
+					"-framework",
+					"IOKit",
+				);
+				"SKIP_INSTALL" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"GCC_OPTIMIZATION_LEVEL" = "0";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+		};
+		"AA4AB26D10906BA2301B4E84" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"COPY_PHASE_STRIP" = "NO";
+				"OTHER_LDFLAGS" = (
+					"$(inherited)",
+					"-framework",
+					"IOKit",
+				);
+				"SKIP_INSTALL" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"GCC_OPTIMIZATION_LEVEL" = "s";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+			};
+		};
+		"3F7E32F382056A2C47BCE010" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"2A2D4EF745B7E8EA2E2370F6",
+				"AA4AB26D10906BA2301B4E84",
+			);
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"15A1CF0046F03ACB335E9AD9" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "2E1B067637F255184E80DD82";
+		};
+		"7111B0C1E86C97122F46AC0F" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "C26A92AE2B9732E5D215E8D5";
+		};
+		"A3549107526FFA235CD7DE38" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"15A1CF0046F03ACB335E9AD9",
+				"7111B0C1E86C97122F46AC0F",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"C538B9B2863F46477EDD01CA" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "FanAssist";
+			"productName" = "FanAssist";
+			"productReference" = "B34F03E279DF136CB92B1F6F";
+			"productType" = "com.apple.product-type.tool";
+			"buildConfigurationList" = "3F7E32F382056A2C47BCE010";
+			"buildPhases" = (
+				"A3549107526FFA235CD7DE38",
+			);
+			"buildRules" = (
+			);
+			"dependencies" = (
+			);
+		};
+		"0AC9AB5445B38FAE143409AD" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"COPY_PHASE_STRIP" = "NO";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "fr.local.MacThermal";
+				"INFOPLIST_FILE" = "Config/Info.plist";
+				"MARKETING_VERSION" = "1.3";
+				"CURRENT_PROJECT_VERSION" = "4";
+				"SWIFT_OBJC_BRIDGING_HEADER" = "Sources/SMC.h";
+				"OTHER_LDFLAGS" = (
+					"$(inherited)",
+					"-framework",
+					"AppKit",
+					"-framework",
+					"IOKit",
+					"-framework",
+					"Metal",
+					"-framework",
+					"UserNotifications",
+				);
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"GCC_OPTIMIZATION_LEVEL" = "0";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+		};
+		"58F4982CF19C34173C9B41C0" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"COPY_PHASE_STRIP" = "NO";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "fr.local.MacThermal";
+				"INFOPLIST_FILE" = "Config/Info.plist";
+				"MARKETING_VERSION" = "1.3";
+				"CURRENT_PROJECT_VERSION" = "4";
+				"SWIFT_OBJC_BRIDGING_HEADER" = "Sources/SMC.h";
+				"OTHER_LDFLAGS" = (
+					"$(inherited)",
+					"-framework",
+					"AppKit",
+					"-framework",
+					"IOKit",
+					"-framework",
+					"Metal",
+					"-framework",
+					"UserNotifications",
+				);
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"GCC_OPTIMIZATION_LEVEL" = "s";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+			};
+		};
+		"F99E569AC3FE915E0CA30864" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"0AC9AB5445B38FAE143409AD",
+				"58F4982CF19C34173C9B41C0",
+			);
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"68F523C8C4309D50F21D1898" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "4B106B5BED599112810B56F6";
+		};
+		"F156220733C8EE86B61B2379" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3D91553C160CD213B7DC6263";
+		};
+		"D608EADA90DBAAB2799D033B" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "C26A92AE2B9732E5D215E8D5";
+		};
+		"AA3C61E76A39DD8BE87FF060" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"68F523C8C4309D50F21D1898",
+				"F156220733C8EE86B61B2379",
+				"D608EADA90DBAAB2799D033B",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"C8A342D7774A82E0E37D0281" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "98F54143AB4E86B28C3AFEE0";
+			"proxyType" = "1";
+			"remoteGlobalIDString" = "C538B9B2863F46477EDD01CA";
+			"remoteInfo" = "FanAssist";
+		};
+		"7192B939A3CB4AAF437EAA4C" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "C538B9B2863F46477EDD01CA";
+			"targetProxy" = "C8A342D7774A82E0E37D0281";
+		};
+		"E8FD22064910F0F18AD5F1AD" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "MacThermal";
+			"productName" = "MacThermal";
+			"productReference" = "53FDD4FE57A83C7B6B7E1CB4";
+			"productType" = "com.apple.product-type.application";
+			"buildConfigurationList" = "F99E569AC3FE915E0CA30864";
+			"buildPhases" = (
+				"AA3C61E76A39DD8BE87FF060",
+				"F775947A5500430D9160E2A4",
+			);
+			"buildRules" = (
+			);
+			"dependencies" = (
+				"7192B939A3CB4AAF437EAA4C",
+			);
+		};
+		"FAEAA5E2577B3B4E82DCEDFB" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"COPY_PHASE_STRIP" = "NO";
+				"HEADER_SEARCH_PATHS" = (
+					"$(SRCROOT)/Sources",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS" = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				"GCC_GENERATE_TEST_COVERAGE_FILES" = "NO";
+				"SKIP_INSTALL" = "YES";
+				"OTHER_CFLAGS" = (
+					"$(inherited)",
+					"-UNDEBUG",
+				);
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"GCC_OPTIMIZATION_LEVEL" = "0";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+		};
+		"99D572829F928EC11E72A4DD" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"COPY_PHASE_STRIP" = "NO";
+				"HEADER_SEARCH_PATHS" = (
+					"$(SRCROOT)/Sources",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS" = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				"GCC_GENERATE_TEST_COVERAGE_FILES" = "NO";
+				"SKIP_INSTALL" = "YES";
+				"OTHER_CFLAGS" = (
+					"$(inherited)",
+					"-UNDEBUG",
+				);
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"GCC_OPTIMIZATION_LEVEL" = "s";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+			};
+		};
+		"CC7C8FA7D07A63F557857C0C" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"FAEAA5E2577B3B4E82DCEDFB",
+				"99D572829F928EC11E72A4DD",
+			);
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"0011CC613A1F250104F95B31" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "25664DAB92B88B7CC174F528";
+		};
+		"1D0B5C76128E02215ECD7889" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"0011CC613A1F250104F95B31",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"1522EF8BC282209D712A2560" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "FanAssistTests";
+			"productName" = "FanAssistTests";
+			"productReference" = "94BBC29CC552E511EAD32DC6";
+			"productType" = "com.apple.product-type.tool";
+			"buildConfigurationList" = "CC7C8FA7D07A63F557857C0C";
+			"buildPhases" = (
+				"1D0B5C76128E02215ECD7889",
+			);
+			"buildRules" = (
+			);
+			"dependencies" = (
+			);
+		};
+		"58785274D50F23613482DD61" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"COPY_PHASE_STRIP" = "NO";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "fr.local.MacThermalTests";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"SKIP_INSTALL" = "YES";
+				"OTHER_LDFLAGS" = (
+					"$(inherited)",
+					"-framework",
+					"XCTest",
+				);
+				"FRAMEWORK_SEARCH_PATHS" = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"GCC_OPTIMIZATION_LEVEL" = "0";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+		};
+		"F92942B432FAC58AEE94C545" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"PRODUCT_NAME" = "$(TARGET_NAME)";
+				"COPY_PHASE_STRIP" = "NO";
+				"MACOSX_DEPLOYMENT_TARGET" = "14.0";
+				"PRODUCT_BUNDLE_IDENTIFIER" = "fr.local.MacThermalTests";
+				"GENERATE_INFOPLIST_FILE" = "YES";
+				"SKIP_INSTALL" = "YES";
+				"OTHER_LDFLAGS" = (
+					"$(inherited)",
+					"-framework",
+					"XCTest",
+				);
+				"FRAMEWORK_SEARCH_PATHS" = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS" = (
+					"$(inherited)",
+					"@loader_path/../Frameworks",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"GCC_OPTIMIZATION_LEVEL" = "s";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+			};
+		};
+		"9F2884B2B7ABC1EACD43AC15" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"58785274D50F23613482DD61",
+				"F92942B432FAC58AEE94C545",
+			);
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"08BD0BEFF3E55AD827B42019" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3E7161A9D724494D1F01C9F2";
+		};
+		"413E301E7F3B379EFABB37C2" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "3D91553C160CD213B7DC6263";
+		};
+		"D6BF009DC6B248DDC53AF09A" = {
+			"isa" = "PBXSourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"08BD0BEFF3E55AD827B42019",
+				"413E301E7F3B379EFABB37C2",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
+		"A4B69CE17BF2A6C6B4EEAF21" = {
+			"isa" = "PBXContainerItemProxy";
+			"containerPortal" = "98F54143AB4E86B28C3AFEE0";
+			"proxyType" = "1";
+			"remoteGlobalIDString" = "1522EF8BC282209D712A2560";
+			"remoteInfo" = "FanAssistTests";
+		};
+		"ABE9A85D622F603C0AF39DA1" = {
+			"isa" = "PBXTargetDependency";
+			"target" = "1522EF8BC282209D712A2560";
+			"targetProxy" = "A4B69CE17BF2A6C6B4EEAF21";
+		};
+		"5957DA1BF6290749DB186AFB" = {
+			"isa" = "PBXNativeTarget";
+			"name" = "MacThermalTests";
+			"productName" = "MacThermalTests";
+			"productReference" = "EEAA0CD702650B9529017DFD";
+			"productType" = "com.apple.product-type.bundle.unit-test";
+			"buildConfigurationList" = "9F2884B2B7ABC1EACD43AC15";
+			"buildPhases" = (
+				"D6BF009DC6B248DDC53AF09A",
+				"0FD1B9DE92B34E0EE4216E06",
+			);
+			"buildRules" = (
+			);
+			"dependencies" = (
+				"ABE9A85D622F603C0AF39DA1",
+			);
+		};
+		"89E1FD6268CC0F221A2BE178" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Debug";
+			"buildSettings" = {
+				"ARCHS" = "x86_64";
+				"ONLY_ACTIVE_ARCH" = "NO";
+				"SDKROOT" = "macosx";
+				"MACOSX_DEPLOYMENT_TARGET" = "12.0";
+				"SWIFT_VERSION" = "5.0";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_WARN_DOCUMENTATION_COMMENTS" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CODE_SIGN_IDENTITY" = "-";
+				"CODE_SIGN_STYLE" = "Manual";
+				"ENABLE_APP_SANDBOX" = "NO";
+				"ENABLE_HARDENED_RUNTIME" = "NO";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
+				"GCC_OPTIMIZATION_LEVEL" = "0";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS" = "DEBUG";
+			};
+		};
+		"E6DE6C99132752C914FEF632" = {
+			"isa" = "XCBuildConfiguration";
+			"name" = "Release";
+			"buildSettings" = {
+				"ARCHS" = "x86_64";
+				"ONLY_ACTIVE_ARCH" = "NO";
+				"SDKROOT" = "macosx";
+				"MACOSX_DEPLOYMENT_TARGET" = "12.0";
+				"SWIFT_VERSION" = "5.0";
+				"CLANG_ENABLE_MODULES" = "YES";
+				"CLANG_WARN_DOCUMENTATION_COMMENTS" = "YES";
+				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"CODE_SIGN_IDENTITY" = "-";
+				"CODE_SIGN_STYLE" = "Manual";
+				"ENABLE_APP_SANDBOX" = "NO";
+				"ENABLE_HARDENED_RUNTIME" = "NO";
+				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
+				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
+				"GCC_OPTIMIZATION_LEVEL" = "s";
+				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
+			};
+		};
+		"862894B703A6DEDF96A9DD6C" = {
+			"isa" = "XCConfigurationList";
+			"buildConfigurations" = (
+				"89E1FD6268CC0F221A2BE178",
+				"E6DE6C99132752C914FEF632",
+			);
+			"defaultConfigurationIsVisible" = "0";
+			"defaultConfigurationName" = "Release";
+		};
+		"98F54143AB4E86B28C3AFEE0" = {
+			"isa" = "PBXProject";
+			"attributes" = {
+				"BuildIndependentTargetsInParallel" = "YES";
+				"LastUpgradeCheck" = "2650";
+			};
+			"buildConfigurationList" = "862894B703A6DEDF96A9DD6C";
+			"compatibilityVersion" = "Xcode 14.0";
+			"developmentRegion" = "fr";
+			"knownRegions" = (
+				"fr",
+				"en",
+				"Base",
+			);
+			"mainGroup" = "E50290A24C49A459B43487C5";
+			"productRefGroup" = "FBDC4F23F93125BBEEAE800C";
+			"projectDirPath" = "";
+			"projectRoot" = "";
+			"targets" = (
+				"C538B9B2863F46477EDD01CA",
+				"E8FD22064910F0F18AD5F1AD",
+				"1522EF8BC282209D712A2560",
+				"5957DA1BF6290749DB186AFB",
+			);
+		};
+	};
+	"rootObject" = "98F54143AB4E86B28C3AFEE0";
+}
