@@ -5,6 +5,44 @@
 	};
 	"objectVersion" = "56";
 	"objects" = {
+		"D6B7F473E8118BFDCCCC487C" = {
+			"path" = "Resources/install-service.sh";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.script.sh";
+			"sourceTree" = "<group>";
+		};
+		"491604211361CC998D8C593C" = {
+			"path" = "Resources/uninstall-service.sh";
+			"isa" = "PBXFileReference";
+			"lastKnownFileType" = "text.script.sh";
+			"sourceTree" = "<group>";
+		};
+		"9DA784184F1D276DC000E8A4" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "D6B7F473E8118BFDCCCC487C";
+		};
+		"599701C5FC62EA1482E6CAB0" = {
+			"isa" = "PBXBuildFile";
+			"fileRef" = "491604211361CC998D8C593C";
+		};
+		"50F0FC3AFD5FBC981B5A0DDD" = {
+			"isa" = "PBXGroup";
+			"name" = "Resources";
+			"children" = (
+				"D6B7F473E8118BFDCCCC487C",
+				"491604211361CC998D8C593C",
+			);
+			"sourceTree" = "<group>";
+		};
+		"8ECC8B5D05B79F879ACDF1A2" = {
+			"isa" = "PBXResourcesBuildPhase";
+			"buildActionMask" = "2147483647";
+			"files" = (
+				"9DA784184F1D276DC000E8A4",
+				"599701C5FC62EA1482E6CAB0",
+			);
+			"runOnlyForDeploymentPostprocessing" = "0";
+		};
 		"4B106B5BED599112810B56F6" = {
 			"isa" = "PBXFileReference";
 			"lastKnownFileType" = "sourcecode.swift";
@@ -136,6 +174,7 @@
 		"E50290A24C49A459B43487C5" = {
 			"isa" = "PBXGroup";
 			"children" = (
+				"50F0FC3AFD5FBC981B5A0DDD",
 				"2EB56BE3C2D93CDAB0C52E67",
 				"39FDEC1194D94212B871A28B",
 				"8851142DA56FD885CE668A16",
@@ -375,6 +414,7 @@
 			"productType" = "com.apple.product-type.application";
 			"buildConfigurationList" = "F99E569AC3FE915E0CA30864";
 			"buildPhases" = (
+				"8ECC8B5D05B79F879ACDF1A2",
 				"AA3C61E76A39DD8BE87FF060",
 				"F775947A5500430D9160E2A4",
 			);

@@ -55,6 +55,7 @@ final class Monitor: NSObject, NSApplicationDelegate, UNUserNotificationCenterDe
     var settingsWindow: NSWindow?
     var fields: [(String, NSTextField)] = []
     var fanDirectory: URL?
+    var usingSystemService = false
     var fanAuthorizationRunning = false
     // AppleScript execution is serialized off the main thread so the UI and
     // heartbeat continue throughout authorization and the helper session.
@@ -70,7 +71,9 @@ final class Monitor: NSObject, NSApplicationDelegate, UNUserNotificationCenterDe
         item.button?.title = "Températures…"
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { _, _ in }
-        if UserDefaults.standard.bool(forKey: "fanControlUnavailable") {
+        if CommandLine.arguments.contains("--install-service") {
+            DispatchQueue.main.async { self.installService() }
+        } else if UserDefaults.standard.bool(forKey: "fanControlUnavailable") {
             fanState = "Renfort suspendu · compatibilité SMC non validée"
         } else { startFans() }
         refresh()
@@ -85,6 +88,7 @@ final class Monitor: NSObject, NSApplicationDelegate, UNUserNotificationCenterDe
     }
     func startFans() {
         guard !fanAuthorizationRunning else { return }
+        if connectSystemService() { return }
         let directory = FileManager.default.temporaryDirectory.appendingPathComponent("MacThermal-\(UUID().uuidString)")
         do {
             try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: false, attributes: [.posixPermissions: 0o700])
@@ -128,9 +132,51 @@ final class Monitor: NSObject, NSApplicationDelegate, UNUserNotificationCenterDe
             fanAuthorizationRunning = false; fanState = "Renfort indisponible : \(error.localizedDescription)"
         }
     }
+    func connectSystemService() -> Bool {
+        let directory = URL(fileURLWithPath: "/Library/Application Support/MacThermal/\(getuid())", isDirectory: true)
+        let daemon = "/Library/LaunchDaemons/fr.local.MacThermal.fans.plist"
+        guard let attributes = try? FileManager.default.attributesOfItem(atPath: daemon),
+              (attributes[.ownerAccountID] as? NSNumber)?.intValue == 0,
+              FileManager.default.isWritableFile(atPath: directory.appendingPathComponent("request").path) else { return false }
+        fanDirectory = directory; usingSystemService = true; fanAuthorizationRunning = true
+        fanState = "Service système connecté · ventilation automatique Apple"
+        try? Data("0".utf8).write(to: directory.appendingPathComponent("request"))
+        return true
+    }
     func stopFans() {
-        if let directory = fanDirectory { try? FileManager.default.removeItem(at: directory.appendingPathComponent("request")) }
-        fanDirectory = nil
+        if let directory = fanDirectory {
+            let request = directory.appendingPathComponent("request")
+            if usingSystemService {
+                try? Data("0".utf8).write(to: request)
+                try? FileManager.default.setAttributes([.modificationDate: Date(timeIntervalSince1970: 0)], ofItemAtPath: request.path)
+            } else { try? FileManager.default.removeItem(at: request) }
+        }
+        fanDirectory = nil; usingSystemService = false
+    }
+    @objc func installService() {
+        stopFans()
+        guard let scriptURL = Bundle.main.url(forResource: "install-service", withExtension: "sh") else { return }
+        let command = "/bin/bash '" + scriptURL.path.replacingOccurrences(of: "'", with: "'\"'\"'") + "' \(getuid())"
+        let script = "do shell script \"" + command.replacingOccurrences(of: "\\", with: "\\\\").replacingOccurrences(of: "\"", with: "\\\"") + "\" with administrator privileges"
+        fanState = "Installation du service · autorisation MacThermal en attente"
+        fanAuthorizationRunning = true
+        authorizationQueue.async {
+            var error: NSDictionary?
+            let result = NSAppleScript(source: script)?.executeAndReturnError(&error)
+            let message = error?[NSAppleScript.errorMessage] as? String
+            DispatchQueue.main.async {
+                self.fanAuthorizationRunning = false
+                if result != nil {
+                    UserDefaults.standard.set(false, forKey: "fanControlUnavailable")
+                    self.startFans()
+                } else {
+                    self.fanState = "Service non installé · ventilation automatique Apple"
+                    let alert = NSAlert();alert.messageText = "Installation du service non terminée"
+                    alert.informativeText = message ?? "Autorisation administrateur refusée."
+                    alert.runModal()
+                }
+            }
+        }
     }
     func refresh() {
         guard !busy else { return }; busy = true
@@ -159,6 +205,9 @@ final class Monitor: NSObject, NSApplicationDelegate, UNUserNotificationCenterDe
                 case "safety-auto": fanState = "Régulation Apple · sécurité capteur CPU"
                 default: fanState = "Renfort prêt · ventilation automatique Apple"
                 }
+            }
+            if usingSystemService && ["unsupported", "restore-error", "preflight-error"].contains(status) {
+                fanState = status == "restore-error" ? "Service : retour automatique non confirmé" : "Service : renfort suspendu · contrôle SMC refusé"
             }
             // Missing readings return control to Apple, which has additional sensors.
             let complete = !values.isEmpty && values.allSatisfy { $0.value != nil }
@@ -206,6 +255,10 @@ final class Monitor: NSObject, NSApplicationDelegate, UNUserNotificationCenterDe
         if !fanAuthorizationRunning {
             let retry = NSMenuItem(title: "Autoriser le renfort des ventilateurs…", action: #selector(retryFans), keyEquivalent: "")
             retry.target = self; menu.addItem(retry)
+        }
+        if !usingSystemService {
+            let install = NSMenuItem(title: "Installer le service sans saisie aux lancements suivants…", action: #selector(installService), keyEquivalent: "")
+            install.target = self; menu.addItem(install)
         }
         menu.addItem(.separator())
         menu.addItem(NSMenuItem(title: "Quitter MacThermal", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))

@@ -39,3 +39,6 @@ Le sandbox et Hardened Runtime ne sont pas activés dans la configuration de dé
 Si un dossier synchronisé ajoute des attributs Finder aux produits de compilation et que codesign refuse les fichiers, utiliser un Derived Data hors de ce dossier (réglages Xcode > Locations, ou `-derivedDataPath /private/tmp/MacThermalDerivedData`). Il n’est pas nécessaire de désactiver la signature ou les protections système.
 
 Validation réalisée le 19 novembre 2026 avec Xcode 26.5 : compilation Debug, quatre tests XCTest réussis, tests des scripts indépendants réussis, archive Release créée, signature locale de l’application et de l’assistant vérifiée. L’archive contient l’assistant de production et exclut l’exécutable de simulation ; le diagnostic CPU et des deux Radeon fonctionne depuis le binaire archivé. Aucun nouveau test matériel d’écriture n’est nécessaire pour ce changement de packaging : le code de pilotage des ventilateurs est inchangé.
+
+
+Les ressources `Resources/install-service.sh` et `uninstall-service.sh` sont intégrées au bundle par la phase Resources Xcode. L’installation système reste une action explicite avec autorisation administrateur ; lancer les tests Xcode n’installe pas le service. Voir `DEMARRAGE-AUTOMATIQUE.md`.

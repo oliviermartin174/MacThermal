@@ -1,0 +1,8 @@
+Renfort F0 : 640 tr/min, mode manuel confirmé
+Renfort F1 : 910 tr/min, mode manuel confirmé
+Renfort F2 : 912 tr/min, mode manuel confirmé
+Renfort F3 : 903 tr/min, mode manuel confirmé
+Refroidissement : quatre modes automatiques confirmés
+Expiration du signal : quatre modes automatiques confirmés ; service toujours chargé
+Relance application : ready
+Service : True

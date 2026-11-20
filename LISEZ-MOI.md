@@ -56,6 +56,11 @@ Validation matérielle de la version 1.2 effectuée le 19 novembre 2026 : renfor
 
 La demande administrateur est exécutée directement par MacThermal avec NSAppleScript, sur une file de travail dédiée et séquentielle. Aucun processus osascript n’est lancé. Le nom affiché par macOS est MacThermal (confirmé par l’utilisateur pendant la validation). Le mot de passe reste saisi dans la fenêtre système ; l’application ne le reçoit ni ne le conserve.
 
-L’interface et l’envoi du signal de présence continuent pendant l’autorisation et toute la session de ventilation. L’assistant de ventilation et son superviseur restent identiques à la version 1.2, avec retour au mode automatique après refroidissement, fermeture ou expiration du signal. Cette version ne crée pas de service permanent au démarrage du système.
+L’interface et l’envoi du signal de présence continuent pendant l’autorisation et toute la session de ventilation. L’assistant de ventilation et son superviseur restent identiques à la version 1.2, avec retour au mode automatique après refroidissement, fermeture ou expiration du signal. Le service permanent optionnel est décrit dans `docs/DEMARRAGE-AUTOMATIQUE.md`.
 
 Documentation Apple : https://developer.apple.com/documentation/foundation/nsapplescript
+
+
+## Démarrage automatique et service optionnel
+
+La configuration peut maintenant lancer la barre des menus à chaque ouverture de session et installer un assistant protégé une fois avec autorisation administrateur. Les sessions suivantes utilisent ce service sans nouvelle saisie. Le renfort et le retour automatique restent identiques. Voir `docs/DEMARRAGE-AUTOMATIQUE.md` pour l’installation, les limites, la désactivation et la désinstallation.

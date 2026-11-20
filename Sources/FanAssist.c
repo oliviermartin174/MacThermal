@@ -74,7 +74,7 @@ static int worker(const char *request,const char *status,const double *minimum,c
  }
  return 0;
 }
-int main(int argc,char **argv){
+static int sessionMain(int argc,char **argv){
  if(argc!=3 || geteuid()!=0)return 1;
  char model[64]={0};size_t length=sizeof(model);sysctlbyname("hw.model",model,&length,0,0);
  if(strcmp(model,"MacPro7,1") || smc_read_number("FNum")!=4)return 2;
@@ -109,4 +109,41 @@ int main(int argc,char **argv){
  if(!restoreAll()){report(status,"restore-error");return 6;}
  report(status,result==5?"unsupported":result==6?"stopped-restored":"stopped");
  return result==6?0:result;
+}
+
+// launchd mode accepts only a numeric installation-time UID. No executable,
+// arbitrary path or RPM is supplied by the unprivileged UI.
+static int trustedDirectory(const char *path){
+ struct stat st;return lstat(path,&st)==0 && S_ISDIR(st.st_mode) && st.st_uid==0 && (st.st_mode&022)==0;
+}
+int main(int argc,char **argv){
+ if(argc==3 && strcmp(argv[1],"--service")==0){
+  if(geteuid()!=0)return 1;
+  char *end=NULL;unsigned long uid=strtoul(argv[2],&end,10);
+  if(!argv[2][0] || *end || uid<500 || uid>2147483647)return 1;
+  char directory[256],request[300],status[300];
+  snprintf(directory,sizeof(directory),"/Library/Application Support/MacThermal/%lu",uid);
+  if(!trustedDirectory("/Library/Application Support/MacThermal") || !trustedDirectory(directory))return 3;
+  snprintf(request,sizeof(request),"%s/request",directory);snprintf(status,sizeof(status),"%s/status",directory);
+  sessionOwner=(uid_t)uid;
+  signal(SIGTERM,stopping);signal(SIGINT,stopping);signal(SIGHUP,stopping);
+  if(!restoreAll()){report(status,"restore-error");return 6;}
+  int fault=0;
+  while(!stop){
+   int demand=requestState(request);
+   if(demand<0){sleep(2);continue;}
+   if(fault && demand!=0){sleep(2);continue;}
+   fault=0;
+   // The immutable installation UID must match both session files.
+   struct stat st;
+   if(lstat(request,&st) || st.st_uid!=(uid_t)uid){sleep(2);continue;}
+   char *sessionArgs[]={argv[0],request,status,NULL};
+   int result=sessionMain(3,sessionArgs);
+   sessionOwner=(uid_t)uid;
+   if(result!=0){fault=1;report(status,result==6?"restore-error":"unsupported");}
+   sleep(2);
+  }
+  return 0;
+ }
+ return sessionMain(argc,argv);
 }

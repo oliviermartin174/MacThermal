@@ -5,7 +5,8 @@ mkdir -p build
 buildDirectory=$(mktemp -d "${TMPDIR:-/tmp}/MacThermal-build.XXXXXX")
 trap 'rm -rf "$buildDirectory"' EXIT
 appPath="$buildDirectory/MacThermal.app"
-mkdir -p "$appPath/Contents/MacOS"
+mkdir -p "$appPath/Contents/MacOS" "$appPath/Contents/Resources"
+cp Resources/*.sh "$appPath/Contents/Resources/"
 xcrun clang -O2 -mmacosx-version-min=12.0 -c Sources/SMC.c -o build/SMC.o
 xcrun swiftc -swift-version 5 -O -target x86_64-apple-macosx12.0 -import-objc-header Sources/SMC.h Sources/main.swift Sources/ThermalModel.swift build/SMC.o -framework AppKit -framework IOKit -framework Metal -o "$appPath/Contents/MacOS/MacThermal"
 xcrun clang -O2 -mmacosx-version-min=12.0 Sources/FanAssist.c build/SMC.o -framework IOKit -o "$appPath/Contents/MacOS/FanAssist"
